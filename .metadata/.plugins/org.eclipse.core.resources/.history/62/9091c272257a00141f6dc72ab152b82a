@@ -1,0 +1,41 @@
+package model;
+
+import javax.persistence.*;
+import java.util.List;
+
+
+/**
+ * The persistent class for the "Medicament" database table.
+ * 
+ */
+@Entity
+@DiscriminatorValue(value="Medicament")
+public class Medicament extends ProduitMedical {
+	private static final long serialVersionUID = 1L;
+
+	@Column(name="Indications")
+	private String indications;
+	
+	@Column(name="Contre_Indications")
+	private String contreIndications;
+
+	public Medicament() {
+	}
+
+	public String getIndications() {
+		return indications;
+	}
+
+	public void setIndications(String indications) {
+		this.indications = indications;
+	}
+
+	public String getContreIndications() {
+		return contreIndications;
+	}
+
+	public void setContreIndications(String contreIndications) {
+		this.contreIndications = contreIndications;
+	}
+
+}

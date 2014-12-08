@@ -1,0 +1,33 @@
+package model;
+
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue(value="DispositifMedical")
+public class DispositifMedical extends ProduitMedical {
+	private static final long serialVersionUID = 1L;
+
+	@Enumerated(EnumType.STRING)
+	@Column
+	private Risque risque;
+
+	public DispositifMedical() {
+	}
+
+	public String getIndications() {
+		return indications;
+	}
+
+	public void setIndications(String indications) {
+		this.indications = indications;
+	}
+
+	public String getContreIndications() {
+		return contreIndications;
+	}
+
+	public void setContreIndications(String contreIndications) {
+		this.contreIndications = contreIndications;
+	}
+
+}

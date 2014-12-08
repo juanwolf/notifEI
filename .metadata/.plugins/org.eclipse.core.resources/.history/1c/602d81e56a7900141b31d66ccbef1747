@@ -1,0 +1,15 @@
+package model;
+
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="\"Patient\"")
+@NamedQuery(name="Patient.findAll", query="SELECT u FROM Patient p")
+public class Patient extends Utilisateur {
+	private static final long serialVersionUID = 1L;
+	
+	
+
+}
