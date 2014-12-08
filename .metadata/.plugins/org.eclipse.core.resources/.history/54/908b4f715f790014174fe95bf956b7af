@@ -1,0 +1,22 @@
+package model;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+public class TestSelect {
+	
+	public static void main(String[] argv) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaExtends");    
+	    EntityManager em = emf.createEntityManager(); 
+	    Utilisateur utilisateur = em.find(Utilisateur.class, 1);
+	    if (utilisateur != null) {
+	    	System.out.println("nom = "+ utilisateur.getLogin() + " | prenom = " + utilisateur.getPassword());
+	    }
+	    em.close();
+	    emf.close();
+	}
+}

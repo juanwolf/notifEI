@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="0" hostname="localhost" id="GlassFish v3 Java EE 6 at localhost" name="GlassFish v3 Java EE 6 at localhost" runtime-id="GlassFish v3 Java EE 6" server-type="com.sun.enterprise.jst.server.sunappsrv92" server-type-id="com.sun.enterprise.jst.server.sunappsrv92" start-timeout="240" stop-timeout="240" timestamp="0">
+    <map key="generic_server_instance_properties" sunappserver.adminname="admin" sunappserver.adminpassword="" sunappserver.adminserverportnumber="4848" sunappserver.domaindir="C:/glassfishv3/glassfish/domains" sunappserver.domainname="domain1" sunappserver.keepSessions="true" sunappserver.serverportnumber="8282"/>
+  </server>
+  <server auto-publish-setting="1" auto-publish-time="0" hostname="localhost" id="GlassFish 4.0 at localhost" name="GlassFish 4.0 at localhost" runtime-id="GlassFish 4.0" server-type="org.glassfish.jst.server.glassfish4" server-type-id="org.glassfish.jst.server.glassfish4" start-timeout="240" stop-timeout="240" timestamp="14">
+    <list key="Generic_Server_Modules_List" value0="org.eclipse.jst.jee.server:NotifEIClient" value1="org.eclipse.jst.jee.server:EJBNotifEI"/>
+    <map key="generic_server_instance_properties" sunappserver.adminname="admin" sunappserver.adminpassword="" sunappserver.adminserverportnumber="4848" sunappserver.domainpath="C:\glassfishv4\glassfish4\glassfish\domains\domain1" sunappserver.keepSessions="true" sunappserver.serveraddress="localhost" sunappserver.serverportnumber="8383"/>
+    <list key="modules" value0="NotifEIClient::org.eclipse.jst.jee.server:NotifEIClient::jst.web::3.1" value1="EJBNotifEI::org.eclipse.jst.jee.server:EJBNotifEI::jst.ejb::3.1"/>
+  </server>
+</servers>

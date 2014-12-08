@@ -1,0 +1,54 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+/**
+ * The persistent class for the "User" database table.
+ * 
+ */
+@Entity
+@Table(name="Utilisateur")
+@Inheritance
+@DiscriminatorColumn(name="UTILISATEUR_TYPE")
+public abstract class Utilisateur implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name="Id")
+	private Integer id;
+
+	@Column(name="Login")
+	private String login;
+
+	@Column(name="Password")
+	private String password;
+
+	public Utilisateur() {
+	}
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+}

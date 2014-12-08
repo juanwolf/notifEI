@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;NotifEIClient/WebContent/Inscription.jsp&apos; to &apos;Inscription2.jsp&apos;" description="Rename resource &apos;Inscription.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/Inscription.jsp" name="Inscription2.jsp" stamp="1418049478103" updateReferences="true"/>
+</session>

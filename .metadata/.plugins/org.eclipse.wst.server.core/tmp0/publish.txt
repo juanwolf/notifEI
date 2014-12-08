@@ -1,0 +1,4 @@
+#GlassFish 3
+#Sun Nov 23 18:10:22 CET 2014
+org.eclipse.jst.jee.server\:NotifEIClient=C\:\\glassfishv4\\glassfish4\\glassfish\\domains\\domain1\\eclipseApps\\NotifEIClient
+org.eclipse.jst.jee.server\:EJBNotifEI=C\:\\glassfishv4\\glassfish4\\glassfish\\domains\\domain1\\eclipseApps\\EJBNotifEI
