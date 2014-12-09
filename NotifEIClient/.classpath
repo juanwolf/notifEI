@@ -25,5 +25,6 @@
 	<classpathentry kind="lib" path="C:/glassfishv4/glassfish4/glassfish/lib/gf-client.jar"/>
 	<classpathentry kind="lib" path="C:/glassfishv4/glassfish4/glassfish/lib/javaee.jar"/>
 	<classpathentry kind="lib" path="C:/glassfishv4/glassfish4/glassfish/lib/jndi-properties.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jean-loup.adde/Downloads/eclipse-java-luna-SR1-win32-x86_64/eclipse/plugins/org.eclipse.jdt.ui_3.10.1.v20140817-1500.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
