@@ -8,6 +8,7 @@
 <title>Inscription</title>
 </head>
 <body>
+	<jsp:include page="/header.jsp" />
 	<form action="POST">
 		Identifiant : 
 		<input type="text" id="id"/>
