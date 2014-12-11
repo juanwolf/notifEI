@@ -9,7 +9,40 @@
 </head>
 <body>
 	<form action="POST">
-		<input id=""/>
+		Identifiant : 
+		<input type="text" id="id"/>
+		<br/><br/>
+		Mot de passe : 
+		<input type="password" id="password"/>
+		<br/><br/>
+		<select id="select" name="role">
+			<option value="patient">Patient</option>
+			<option value="association-patients">Association de patients</option>
+			<option value="medecin-hospitalier">Médecin hospitalier</option>
+			<option value="medecin-ville">Médecin de ville</option>
+			<option value="laboratoire-pharmaceutique">Laboratoire pharmaceutique</option>
+			<option value="laboratoire-cosmetique">Laboratoire cosmétique</option>
+			<option value="crpv">CRPV</option>
+			<option value="cnpv">CNPV</option>
+		</select>
+		<br/><br/>
+		Nom : 
+		<input type="text" id="nom"/>
+		<br/><br/>
+		Prenom : 
+		<input type="text" id="prenom"/>
+		<br/><br/>
+		<input type="date" id="date"/>
+		<br/><br/>
+		<input type="tel" id="telephone"/>		
+		<input type="submit" value="Envoyer"/>
 	</form>
+	
+	
+	<script type="text/javascript">
+		document.getElementById("select").onchange = function() {
+			alert("oki");
+		}
+	</script>
 </body>
 </html>

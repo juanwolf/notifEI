@@ -1,8 +1,0 @@
-package model;
-
-public enum Risque {
-	"Classe I - faible risque",
-	"Classe IIa - degré moyen",
-	"Classe IIb - niveau élevé",
-	"Classe III - critique"
-}

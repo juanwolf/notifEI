@@ -56,7 +56,6 @@ INDEX VERSION 1.126+C:\Users\Quentin\workspaceProjetJee\.metadata\.plugins\org.e
 4114066357.index
 2437424235.index
 1610516108.index
-3103765294.index
 4133556091.index
 2869761518.index
 1908430642.index

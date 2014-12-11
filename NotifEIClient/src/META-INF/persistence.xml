@@ -4,6 +4,7 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.Medicament</class>
 		<class>model.User</class>
+		<class>model.Utilisateur</class>
 		<properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/notifEI"/>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
