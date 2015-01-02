@@ -1,7 +1,12 @@
-package model;
+package tests;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import model.Medicament;
+import model.Role;
+
 import java.util.List;
 
 
@@ -9,7 +14,7 @@ import java.util.List;
  * The persistent class for the "User" database table.
  * 
  */
-@Entity
+//@Entity
 @Table(name="\"User\"")
 @NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User implements Serializable {

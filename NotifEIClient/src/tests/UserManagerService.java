@@ -1,4 +1,4 @@
-package model;
+package tests;
 
 import javax.ejb.Remote;
 import javax.persistence.EntityManagerFactory;

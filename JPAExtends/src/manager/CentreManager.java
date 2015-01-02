@@ -1,18 +1,18 @@
-package model;
+package manager;
  
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import model.*;
 
-public class PatientManager {
+public class CentreManager {
 
 	private EntityManagerFactory emf = null;
 
-    public PatientManager() { 
+    public CentreManager() { 
     	
     }
     
@@ -26,59 +26,57 @@ public class PatientManager {
     	}
     } 
 
-	public void create(Patient patient) {
+	public void create(Centre centre) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();    
 			EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    em.persist(patient);
+		    em.persist(centre);
 		    transac.commit();   
 		} finally {
 			em.close(); 
 		}
 	}
 	
-	public Patient retrieve(int id) {
+	public Centre retrieve(int id) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager(); 
-			Patient patient = em.find(Patient.class, id);
-		    return patient;
+			Centre centre = em.find(Centre.class, id);
+		    return centre;
 		} finally {
 			em.close();
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Patient> retrieve(String champ, String valeur) {
+	public List<Centre> retrieve(String champ, String valeur) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();
-			Query query = em.createQuery("select p from Patient p where p." + champ + " = '" + valeur + "'");
-			List<Patient> patients = query.getResultList();
-			return patients;
+			Query query = em.createQuery("select c from Centre c where c." + champ + " = '" + valeur + "'");
+			List<Centre> centres = query.getResultList();
+			return centres;
 		} finally {
 			em.close();
 		}
 	}
 	
-	public void update(Patient patient) {
+	public void update(Centre centre) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();
 		    EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    Patient p = em.find(Patient.class, patient.getId());
-		    if (p != null) {
-		    	p.setNom(patient.getNom());
-		    	p.setPrenom(patient.getPrenom());
-		    	p.setDateNaissance(patient.getDateNaissance());
-		    	p.setTelephone(patient.getTelephone());
-		    	p.setEmail(patient.getEmail());
-		    	p.setAdresse(patient.getAdresse());
-		    	p.setVille(patient.getVille());
-		    	p.setCodePostal(patient.getCodePostal());
+		    Centre c = em.find(Centre.class, centre.getId());
+		    if (c != null) {
+		    	c.setNom(centre.getNom());
+		    	c.setTelephone(centre.getTelephone());
+		    	c.setEmail(centre.getEmail());
+		    	c.setAdresse(centre.getAdresse());
+		    	c.setVille(centre.getVille());
+		    	c.setCodePostal(centre.getCodePostal());
 		      	em.flush();
 		    }
 		    transac.commit();
@@ -93,9 +91,9 @@ public class PatientManager {
 			em = emf.createEntityManager();
 		    EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    Patient patient = em.find(Patient.class, id);    
-		    if (patient != null) {
-		      em.remove(patient);      
+		    Centre centre = em.find(Centre.class, id);    
+		    if (centre != null) {
+		      em.remove(centre);      
 		    }
 		    transac.commit();
 		} finally {		    

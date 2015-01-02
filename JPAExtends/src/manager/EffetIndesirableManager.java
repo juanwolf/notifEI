@@ -1,4 +1,4 @@
-package model;
+package manager;
  
 import java.util.List;
 
@@ -7,12 +7,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import model.*;
 
-public class ProduitMedicalManager {
+public class EffetIndesirableManager {
 
 	private EntityManagerFactory emf = null;
 
-    public ProduitMedicalManager() { 
+    public EffetIndesirableManager() { 
     	
     }
     
@@ -26,51 +27,51 @@ public class ProduitMedicalManager {
     	}
     } 
 
-	public void create(ProduitMedical pm) {
+	public void create(EffetIndesirable ei) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();    
 			EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    em.persist(pm);
+		    em.persist(ei);
 		    transac.commit();   
 		} finally {
 			em.close(); 
 		}
 	}
 	
-	public ProduitMedical retrieve(int id) {
+	public EffetIndesirable retrieve(int id) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager(); 
-			ProduitMedical pm = em.find(ProduitMedical.class, id);
-		    return pm;
+			EffetIndesirable ei = em.find(EffetIndesirable.class, id);
+		    return ei;
 		} finally {
 			em.close();
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<ProduitMedical> retrieve(String champ, String valeur) {
+	public List<EffetIndesirable> retrieve(String champ, String valeur) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();
-			Query query = em.createQuery("select p from ProduitMedical p where p." + champ + " = '" + valeur + "'");
-			List<ProduitMedical> pms = query.getResultList();
-			return pms;
+			Query query = em.createQuery("select e from EffetIndesirable e where e." + champ + " = '" + valeur + "'");
+			List<EffetIndesirable> eis = query.getResultList();
+			return eis;
 		} finally {
 			em.close();
 		}
 	}
 	
-	public void update(ProduitMedical pm) {
+	public void update(EffetIndesirable ei) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();
 		    EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    ProduitMedical p = em.find(ProduitMedical.class, pm.getId());
-		    if (p != null) {
+		    EffetIndesirable e = em.find(EffetIndesirable.class, ei.getId());
+		    if (e != null) {
 		    	
 		      	em.flush();
 		    }
@@ -86,9 +87,9 @@ public class ProduitMedicalManager {
 			em = emf.createEntityManager();
 		    EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    ProduitMedical pm = em.find(ProduitMedical.class, id);    
-		    if (pm != null) {
-		      em.remove(pm);      
+		    EffetIndesirable ei = em.find(EffetIndesirable.class, id);    
+		    if (ei != null) {
+		      em.remove(ei);      
 		    }
 		    transac.commit();
 		} finally {		    

@@ -1,4 +1,4 @@
-package model;
+package tests;
 
 import java.math.BigDecimal;
 import javax.ejb.Remote;

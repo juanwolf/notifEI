@@ -1,6 +1,8 @@
-package model;
+package tests;
 
 import java.util.List;
+import model.*;
+import manager.*;
 
 public class TestPatientManager {
 	

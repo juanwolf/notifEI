@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -24,6 +25,9 @@ public abstract class Utilisateur implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column
 	private Role role;
+	
+	@OneToMany(mappedBy="utilisateur", fetch=FetchType.EAGER)
+	private List<Declaration> declarations;
 
 	public Utilisateur() {
 	}
@@ -58,6 +62,14 @@ public abstract class Utilisateur implements Serializable {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	public List<Declaration> getDeclarations() {
+		return declarations;
+	}
+
+	public void setDeclarations(List<Declaration> declarations) {
+		this.declarations = declarations;
 	}
 
 }

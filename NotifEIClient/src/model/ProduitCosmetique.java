@@ -5,8 +5,8 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@DiscriminatorValue(value="Medicament")
-public class Medicament extends ProduitMedical {
+@DiscriminatorValue(value="ProduitCosmetique")
+public class ProduitCosmetique extends ProduitMedical {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="Indications")
@@ -15,18 +15,10 @@ public class Medicament extends ProduitMedical {
 	@Column(name="Contre_Indications")
 	private String contreIndications;
 	
-	@ManyToMany
-	@JoinTable(
-		name="Medicament_SubstanceActive",
-		joinColumns={
-			@JoinColumn(name="Id_Medicament", referencedColumnName="Id")
-		},
-		inverseJoinColumns={
-			@JoinColumn(name="Id_SubstanceActive", referencedColumnName="Id")
-		})
-	private List<SubstanceActive> substancesActives;
+	@ManyToMany(mappedBy="produitsCosmetiques")
+	private List<Ingredient> ingredients;
 
-	public Medicament() {
+	public ProduitCosmetique() {
 	}
 
 	public String getIndications() {
@@ -43,6 +35,14 @@ public class Medicament extends ProduitMedical {
 
 	public void setContreIndications(String contreIndications) {
 		this.contreIndications = contreIndications;
+	}
+
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
 	}
 	
 	public String toString() {

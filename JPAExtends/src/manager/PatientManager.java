@@ -1,4 +1,4 @@
-package model;
+package manager;
  
 import java.util.List;
 
@@ -7,12 +7,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import model.*;
 
-public class EffetIndesirableManager {
+public class PatientManager {
 
 	private EntityManagerFactory emf = null;
 
-    public EffetIndesirableManager() { 
+    public PatientManager() { 
     	
     }
     
@@ -26,52 +27,59 @@ public class EffetIndesirableManager {
     	}
     } 
 
-	public void create(EffetIndesirable ei) {
+	public void create(Patient patient) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();    
 			EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    em.persist(ei);
+		    em.persist(patient);
 		    transac.commit();   
 		} finally {
 			em.close(); 
 		}
 	}
 	
-	public EffetIndesirable retrieve(int id) {
+	public Patient retrieve(int id) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager(); 
-			EffetIndesirable ei = em.find(EffetIndesirable.class, id);
-		    return ei;
+			Patient patient = em.find(Patient.class, id);
+		    return patient;
 		} finally {
 			em.close();
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<EffetIndesirable> retrieve(String champ, String valeur) {
+	public List<Patient> retrieve(String champ, String valeur) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();
-			Query query = em.createQuery("select e from EffetIndesirable e where e." + champ + " = '" + valeur + "'");
-			List<EffetIndesirable> eis = query.getResultList();
-			return eis;
+			Query query = em.createQuery("select p from Patient p where p." + champ + " = '" + valeur + "'");
+			List<Patient> patients = query.getResultList();
+			return patients;
 		} finally {
 			em.close();
 		}
 	}
 	
-	public void update(EffetIndesirable ei) {
+	public void update(Patient patient) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();
 		    EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    EffetIndesirable e = em.find(EffetIndesirable.class, ei.getId());
-		    if (e != null) {
-		    	
+		    Patient p = em.find(Patient.class, patient.getId());
+		    if (p != null) {
+		    	p.setNom(patient.getNom());
+		    	p.setPrenom(patient.getPrenom());
+		    	p.setDateNaissance(patient.getDateNaissance());
+		    	p.setTelephone(patient.getTelephone());
+		    	p.setEmail(patient.getEmail());
+		    	p.setAdresse(patient.getAdresse());
+		    	p.setVille(patient.getVille());
+		    	p.setCodePostal(patient.getCodePostal());
 		      	em.flush();
 		    }
 		    transac.commit();
@@ -86,9 +94,9 @@ public class EffetIndesirableManager {
 			em = emf.createEntityManager();
 		    EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    EffetIndesirable ei = em.find(EffetIndesirable.class, id);    
-		    if (ei != null) {
-		      em.remove(ei);      
+		    Patient patient = em.find(Patient.class, id);    
+		    if (patient != null) {
+		      em.remove(patient);      
 		    }
 		    transac.commit();
 		} finally {		    

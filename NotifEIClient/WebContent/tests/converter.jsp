@@ -1,4 +1,4 @@
-<%@ page import="model.Converter, java.math.*, javax.naming.*"%>
+<%@ page import="tests.Converter, java.math.*, javax.naming.*"%>
 
 <%!
  private Converter converter = null;

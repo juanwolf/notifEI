@@ -1,4 +1,4 @@
-package model;
+package manager;
  
 import java.util.List;
 
@@ -7,12 +7,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import model.*;
 
-public class MedecinManager {
+public class LaboratoireManager {
 
 	private EntityManagerFactory emf = null;
 
-    public MedecinManager() { 
+    public LaboratoireManager() { 
     	
     }
     
@@ -26,60 +27,57 @@ public class MedecinManager {
     	}
     } 
 
-	public void create(Medecin medecin) {
+	public void create(Laboratoire laboratoire) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();    
 			EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    em.persist(medecin);
+		    em.persist(laboratoire);
 		    transac.commit();   
 		} finally {
 			em.close(); 
 		}
 	}
 	
-	public Medecin retrieve(int id) {
+	public Laboratoire retrieve(int id) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager(); 
-			Medecin medecin = em.find(Medecin.class, id);
-		    return medecin;
+			Laboratoire laboratoire = em.find(Laboratoire.class, id);
+		    return laboratoire;
 		} finally {
 			em.close();
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Medecin> retrieve(String champ, String valeur) {
+	public List<Laboratoire> retrieve(String champ, String valeur) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();
-			Query query = em.createQuery("select m from Medecin m where m." + champ + " = '" + valeur + "'");
-			List<Medecin> medecins = query.getResultList();
-			return medecins;
+			Query query = em.createQuery("select l from Laboratoire l where l." + champ + " = '" + valeur + "'");
+			List<Laboratoire> laboratoires = query.getResultList();
+			return laboratoires;
 		} finally {
 			em.close();
 		}
 	}
 	
-	public void update(Medecin medecin) {
+	public void update(Laboratoire laboratoire) {
 		EntityManager em = null;
 		try {
 			em = emf.createEntityManager();
 		    EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    Medecin m = em.find(Medecin.class, medecin.getId());
-		    if (m != null) {
-		    	m.setNom(medecin.getNom());
-		    	m.setPrenom(medecin.getPrenom());
-		    	m.setTelephone(medecin.getTelephone());
-		    	m.setEmail(medecin.getEmail());
-		    	m.setAdresse(medecin.getAdresse());
-		    	m.setVille(medecin.getVille());
-		    	m.setCodePostal(medecin.getCodePostal());
-		    	m.setQualification(medecin.getQualification());
-		    	m.setLieuTravail(medecin.getLieuTravail());
+		    Laboratoire l = em.find(Laboratoire.class, laboratoire.getId());
+		    if (l != null) {
+		    	l.setNom(laboratoire.getNom());
+		    	l.setTelephone(laboratoire.getTelephone());
+		    	l.setEmail(laboratoire.getEmail());
+		    	l.setAdresse(laboratoire.getAdresse());
+		    	l.setVille(laboratoire.getVille());
+		    	l.setCodePostal(laboratoire.getCodePostal());
 		      	em.flush();
 		    }
 		    transac.commit();
@@ -94,9 +92,9 @@ public class MedecinManager {
 			em = emf.createEntityManager();
 		    EntityTransaction transac = em.getTransaction();
 		    transac.begin();
-		    Medecin medecin = em.find(Medecin.class, id);    
-		    if (medecin != null) {
-		      em.remove(medecin);      
+		    Laboratoire laboratoire = em.find(Laboratoire.class, id);    
+		    if (laboratoire != null) {
+		      em.remove(laboratoire);      
 		    }
 		    transac.commit();
 		} finally {		    
