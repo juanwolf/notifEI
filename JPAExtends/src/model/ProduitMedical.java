@@ -6,12 +6,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,6 +39,9 @@ public class ProduitMedical implements Serializable {
 	
 	@ManyToMany(mappedBy="produitsMedicaux")
 	private List<EffetIndesirable> effetsIndesirables;
+	
+	@OneToMany(mappedBy="produitMedical", fetch=FetchType.EAGER)
+	private List<Declaration> declarations;
 	
 	public ProduitMedical() {
 		
@@ -72,6 +77,28 @@ public class ProduitMedical implements Serializable {
 
 	public void setLaboratoire(Laboratoire laboratoire) {
 		this.laboratoire = laboratoire;
+	}
+
+	public List<EffetIndesirable> getEffetsIndesirables() {
+		return effetsIndesirables;
+	}
+
+	public void setEffetsIndesirables(List<EffetIndesirable> effetsIndesirables) {
+		this.effetsIndesirables = effetsIndesirables;
+	}
+
+	public List<Declaration> getDeclarations() {
+		return declarations;
+	}
+
+	public void setDeclarations(List<Declaration> declarations) {
+		this.declarations = declarations;
+	}
+	
+	public String toString() {
+		return "Nom : " + nom 
+			+ "<br/>Laboratoire : " + laboratoire.getNom()
+			+ "<br/><hr/>"; 
 	}
 	
 }

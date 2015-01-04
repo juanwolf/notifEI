@@ -44,5 +44,13 @@ public class Medicament extends ProduitMedical {
 	public void setContreIndications(String contreIndications) {
 		this.contreIndications = contreIndications;
 	}
+	
+	public String toString() {
+		return "Nom : " + getNom() 
+			+ "<br/>Laboratoire : " + getLaboratoire().getNom()
+			+ "<br/>Indications : " + indications
+			+ "<br/>Contre-indications : " + contreIndications
+			+ "<br/><hr/>"; 
+	}
 
 }

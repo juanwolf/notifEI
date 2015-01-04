@@ -1,56 +1,56 @@
 package model;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
 
+import javax.persistence.*;
 
-/**
- * The persistent class for the "Medicament" database table.
- * 
- */
 @Entity
-@Table(name="\"Medicament\"")
-@NamedQuery(name="Medicament.findAll", query="SELECT m FROM Medicament m")
-public class Medicament implements Serializable {
+@DiscriminatorValue(value="Medicament")
+public class Medicament extends ProduitMedical {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name="\"Id\"")
-	private Integer id;
-
-	@Column(name="\"Nom\"")
-	private String nom;
-
-	//bi-directional many-to-many association to User
-	@ManyToMany(mappedBy="medicaments")
-	private List<User> users;
+	@Column(name="Indications")
+	private String indications;
+	
+	@Column(name="Contre_Indications")
+	private String contreIndications;
+	
+	@ManyToMany
+	@JoinTable(
+		name="Medicament_SubstanceActive",
+		joinColumns={
+			@JoinColumn(name="Id_Medicament", referencedColumnName="Id")
+		},
+		inverseJoinColumns={
+			@JoinColumn(name="Id_SubstanceActive", referencedColumnName="Id")
+		})
+	private List<SubstanceActive> substancesActives;
 
 	public Medicament() {
 	}
 
-	public Integer getId() {
-		return this.id;
+	public String getIndications() {
+		return indications;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIndications(String indications) {
+		this.indications = indications;
 	}
 
-	public String getNom() {
-		return this.nom;
+	public String getContreIndications() {
+		return contreIndications;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setContreIndications(String contreIndications) {
+		this.contreIndications = contreIndications;
 	}
-
-	public List<User> getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
+	
+	public String toString() {
+		return "Nom : " + getNom() 
+			+ "<br/>Laboratoire : " + getLaboratoire().getNom()
+			+ "<br/>Indications : " + indications
+			+ "<br/>Contre-indications : " + contreIndications
+			+ "<br/><hr/>"; 
 	}
 
 }

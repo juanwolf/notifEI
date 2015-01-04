@@ -1,6 +1,7 @@
 package model;
 
 public enum Role {
+	UTILISATEUR,
 	PATIENT,
 	ASSOCIATION_PATIENTS,
 	MEDECIN_HOSPITALIER,

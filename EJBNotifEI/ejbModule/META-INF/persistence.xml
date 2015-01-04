@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="notifEI">
+	<persistence-unit name="jpaExtends">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>model.Centre</class>
+		<class>model.ClasseChimique</class>
+		<class>model.ClassePharmacologique</class>
+		<class>model.Departement</class>
+		<class>model.EffetIndesirable</class>
+		<class>model.Laboratoire</class>
+		<class>model.Medecin</class>
 		<class>model.Medicament</class>
-		<class>model.User</class>
+		<class>model.Patient</class>
+		<class>model.ProduitMedical</class>
+		<class>model.SubstanceActive</class>
+		<class>model.Utilisateur</class>
+		<class>model.Declaration</class>
+		<class>model.DispositifMedical</class>
+		<class>model.Ingredient</class>
+		<class>model.ProduitCosmetique</class>
 		<properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/notifEI"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jpaExtends"/>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
             <property name="javax.persistence.jdbc.password" value="21006257"/>

@@ -1,8 +1,27 @@
+<%@page import="javax.naming.InitialContext"%>
 <%@page import="java.util.List"%>
 <%@page import="manager.*"%>
 <%@page import="model.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%!
+	private ProduitMedicalService pms = null;
+	private EffetIndesirableService eis = null;
+   	public void jspInit() {
+    	try {
+       		InitialContext ic = new InitialContext();
+       		pms = (ProduitMedicalService) ic.lookup(ProduitMedicalService.class.getName());
+       		eis = (EffetIndesirableService) ic.lookup(EffetIndesirableService.class.getName());
+     	} catch (Exception ex) {
+             System.out.println("Création impossible :"+ ex.getMessage());
+     	}
+   }
+
+   public void jspDestroy() {
+       pms = null;
+       eis = null;
+   }
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,10 +39,9 @@
 		Produit Médical :
 		<select id="select" name="produit_medical">
 <%
-	ProduitMedicalManager pmm = new ProduitMedicalManager();
-	pmm.init();
-	List<ProduitMedical> list = pmm.retrieveAll();
-	pmm.close();
+	pms.init();
+	List<ProduitMedical> list = pms.retrieveAll();
+	pms.close();
 	for (int i = 0; i < list.size(); i++) {
 		out.print("<option value=\"" + list.get(i).getNom()
 				+ "\">" + list.get(i).getNom() +"</option>");
@@ -34,10 +52,9 @@
 		Effet indésirable : 
 		<select id="selectEI" name="effet_indesirable">
 <%
-	EffetIndesirableManager eim = new EffetIndesirableManager();
-	eim.init();
-	List<EffetIndesirable> listEI = eim.retrieveAll();
-	eim.close();
+	eis.init();
+	List<EffetIndesirable> listEI = eis.retrieveAll();
+	eis.close();
 	for (int i = 0; i < listEI.size(); i++) {
 		out.print("<option value=\"" + listEI.get(i).getNom()
 				+ "\">" + listEI.get(i).getNom() +"</option>");
