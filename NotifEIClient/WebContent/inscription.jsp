@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="inscription.css" />
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Inscription</title>
 </head>
 <body>
@@ -16,14 +17,18 @@
 %>
 	<jsp:include page="/header.jsp" />
 	<form action="SubscribeServlet" method="post">
-		<div id="champsUtilisateur">
-			Login : 
-			<input type="text" name="login"/>
+		<div  id="champsUtilisateur">
+			<div class="form-group">
+				<label>Login :</label> 
+				<input class="form-control" type="text" name="login"/>
+			</div>
 			<br/><br/>
-			Mot de passe : 
-			<input type="password" name="password"/>
+			<div class="form-group">
+			<label>Mot de passe : </label>
+			<input class="form-control" type="password" name="password"/>
+			</div>
 			<br/><br/>
-			<select id="select" name="role">
+			<select class="form-control" id="select" name="role">
 				<option value="patient">Patient</option>
 				<option value="association-patients">Association de patients</option>
 				<option value="medecin-hospitalier">Médecin hospitalier</option>
@@ -34,58 +39,60 @@
 			<br/><br/>
 		</div>
 		<div id="autresChamps">
-			<div class="" id="divNom">
-				Nom : 
-				<input type="text" name="nom"/>
+			<div class="form-group" id="divNom">
+				<label>Nom :</label> 
+				<input class="form-control" type="text" name="nom"/>
 				<br/>
 			</div>
-			<div class="" id="divPrenom">
-				Prénom : 
-				<input type="text" name="prenom"/>
+			<div class="form-group" id="divPrenom">
+				<label>Prénom :</label> 
+				<input class="form-control" type="text" name="prenom"/>
 				<br/>
 			</div>
-			<div class="" id="divDateNaissance">
-				Date de naissance :
-				<input type="text" name="dateNaissance"/>
+			<div class="form-group" id="divDateNaissance">
+				<label>Date de naissance :</label>
+				<input class="form-control" type="text" name="dateNaissance"/>
 				<br/>
 			</div>
-			<div class="" id="divTelephone">
-				Téléphone :
-				<input type="text" name="telephone"/>
+			<div class="form-group" id="divTelephone">
+				<label>Téléphone :</label>
+				<input class="form-control" type="text" name="telephone"/>
 				<br/>
 			</div>
-			<div class="" id="divEmail">
-				Email : 
-				<input type="text" name="email"/>
+			<div class="form-group" id="divEmail">
+				<label>Email :</label> 
+				<input class="form-control" type="text" name="email"/>
 				<br/>
 			</div>
-			<div class="" id="divAdresse">
-				Adresse : 
-				<input type="text" name="adresse"/>
+			<div class="form-group" id="divAdresse">
+				<label>Adresse : </label>
+				<input class="form-control" type="text" name="adresse"/>
 				<br/>
 			</div>
-			<div class="" id="divVille">
-				Ville : 
-				<input type="text" name="ville"/>
+			<div class="form-group" id="divVille">
+				<label>Ville : </label>
+				<input  class="form-control" type="text" name="ville"/>
 				<br/>
 			</div>
-			<div class="" id="divCodePostal">
-				Code Postal : 
-				<input type="text" name="codePostal"/>
+			<div class="form-group" id="divCodePostal">
+				<label>Code Postal : </label>
+				<input class="form-control" type="text" name="codePostal"/>
 				<br/>
 			</div>
-			<div class="hidden" id="divQualifications">
-				Qualifications : 
-				<input type="text" name="qualifications"/>
+			<div class="hidden form-group" id="divQualifications">
+				<label>Qualifications : </label>
+				<input class="form-control" type="text" name="qualifications"/>
 				<br/>
 			</div>
-			<div class="hidden" id="divLieuTravail">
-				Lieu de travail : 
-				<input type="text" name="lieuTravail"/>
+			<div class="hidden form-group" id="divLieuTravail">
+				<label>Lieu de travail : </label>
+				<input class="form-control" type="text" name="lieuTravail"/>
 				<br/>
 			</div>
-		</div>		
-		<input type="submit" value="Envoyer"/>
+		</div>
+		<div class="form-group">		
+			<input class="btn btn-primary" type="submit" value="Envoyer"/>
+		</div>
 <%   	
 		if (request.getSession().getAttribute("erreur") != null) { 
 			out.print(String.format("Erreur : %s", request.getSession().getAttribute("erreur")));

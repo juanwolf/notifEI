@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Connexion</title>
 </head>
@@ -16,10 +17,16 @@
 	<h1>
 		Connexion
 	</h1>
-	<form action="LoginServlet" method="post">
-		<label>Pseudo :</label><input type="text" name="login"/>
-		<label>Password : </label> <input type="password" name="password"/>
-		 <input type="submit" value="Connexion"/>
+	<form class="form-inline" action="LoginServlet" method="post">
+	<div class="form-group">
+		<label>Pseudo :</label><input class="form-control" type="text" name="login"/>
+		</div>
+		<div class="form-group">
+		<label>Password : </label> <input class="form-control" type="password" name="password"/>
+		</div>
+		<div class="form-group">
+		 <input class="btn btn-primary" type="submit" value="Connexion"/>
+		 </div>
 	</form>
 <%
 	if (request.getSession().getAttribute("erreur") != null) {

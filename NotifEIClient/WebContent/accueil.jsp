@@ -23,11 +23,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Accueil</title>
 </head>
 <body>
 	<jsp:include page="/header.jsp" />
-	<div id="bulletin-alerte">
+	<div class="container" id="bulletin-alerte">
 	<h1>
 	bulletin d'alerte :
 	</h1>

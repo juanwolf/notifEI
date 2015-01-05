@@ -25,6 +25,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Declaration</title>
 </head>
@@ -35,9 +36,13 @@
 		response.sendRedirect("accueil.jsp");
 	}
 %>
-	<form action="DeclareServlet" method="post">
-		Produit Médical :
-		<select id="select" name="produit_medical">
+	<div class="container">
+	<form class="form-inline" action="DeclareServlet" method="post">
+		<div class="form-group">
+		<label>
+		Produit Médical :</label>
+		<select class="form-control" id="select" name="produit_medical">
+		
 <%
 	pms.init();
 	List<ProduitMedical> list = pms.retrieveAll();
@@ -48,9 +53,13 @@
 	}
 %>
 		</select>
+		</div>
 		<br/>
-		Effet indésirable : 
-		<select id="selectEI" name="effet_indesirable">
+		<div class="form-control">
+		<label>
+		Effet indésirable :
+		</label> 
+		<select class="form-control" id="selectEI" name="effet_indesirable">
 <%
 	eis.init();
 	List<EffetIndesirable> listEI = eis.retrieveAll();
@@ -61,6 +70,7 @@
 	}
 %>
 		</select>
+		</div>
 		<br/>
 <%
 	// uniquement pour les patients pour savoir s'il s'agit d'une déclaration
@@ -72,7 +82,9 @@
 		}
 	}
 %>
-		<input type="submit" value="Déclarer"/>
+		<div class="form-control">
+		<input class="btn btn-primary" type="submit" value="Déclarer"/>
+		</div>
 	</form>
 <%
 	if (request.getSession().getAttribute("erreur") != null) {
@@ -80,5 +92,6 @@
 		request.getSession().setAttribute("erreur", "");
 	}
 %>
+</div>
 </body>
 </html>

@@ -23,24 +23,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="inscription.css" />
 <title>Recherche</title>
 </head>
 <body>
 	<jsp:include page="/header.jsp" />
 	<form action="SearchServlet" method="get">
-		<div class="" id="divNom">
-			Nom : <input type="text" name="nom"/>
+		<div class="form-group" class="" id="divNom">
+			<label>Nom :</label>
+			<input class="form-control" type="text" name="nom"/>
 			<br/>
 		</div>
-		<div class="hidden" id="divPrenom">
-			Prénom : 
-			<input type="text" name="prenom"/>
+		<div class="hidden form-group" id="divPrenom">
+			<label>Prénom :</label> 
+			<input class="form-control" type="text" name="prenom"/>
 			<br/>
 		</div>
-		<div class="hidden" id="divSelect">
-			Produit médical :
-			<select id="selectProduitsMedicaux" name="produits_medicaux">
+		<div class="hidden form-group" id="divSelect">
+			<label>Produit médical :</label>
+			<select class="form-control" id="selectProduitsMedicaux" name="produits_medicaux">
 <%
 	pms.init();
 	List<ProduitMedical> list = pms.retrieveAll();
@@ -51,7 +53,7 @@
 %>
 			</select>
 		</div>	
-		<select id="select" name="recherche">
+		<select class="form-control" id="select" name="recherche">
 			<option value="produits_medicaux">Produits Médicaux</option>
 			<option value="effets_indesirables">Effets Indésirables</option>
 <% 
@@ -68,7 +70,7 @@
 %>			
 		</select>
 		<br/>
-		<input type="submit" value="Rechercher"/>
+		<input class="btn btn-primary" type="submit" value="Rechercher"/>
 		<br/>
 		<hr/> 
 	</form>
