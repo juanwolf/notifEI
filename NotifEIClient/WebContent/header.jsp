@@ -17,17 +17,22 @@
 %>
    		<ul class="nav navbar-nav">
    			<li><a href="accueil.jsp">Accueil</a></li>
+   			<li><a href="connexion.jsp">Connexion</a></li>
 			<li><a href="inscription.jsp">Inscription</a></li>
-			<li><a href="connexion.jsp">Connexion</a></li>
+			<li><a href="recherche.jsp">Recherche</a></li>
 		</ul>
 <%
    	} else {
 		Utilisateur utilsateur = (Utilisateur) request.getSession().getAttribute("utilisateur"); 
 		out.print(String.format("Bienvenue %s", utilsateur.getLogin()));
 %>
-	<a href="LogoutServlet">Déconnexion</a>
-	<a href="recherche.jsp">Recherche</a>
-	<a href="declaration.jsp">Déclarer un effet indésirable</a>
+		<ul class="nav navbar-nav">
+			<li><a href="accueil.jsp">Accueil</a></li>
+			<li><a href="recherche.jsp">Recherche</a></li>
+			<li><a href="declaration.jsp">Déclarer un effet indésirable</a></li>
+			<li><a href="LogoutServlet">Déconnexion</a></li>
+		</ul>
+	
 <%
 	}
 %>

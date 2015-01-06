@@ -29,9 +29,7 @@
 <body>
 	<jsp:include page="/header.jsp" />
 	<div class="container" id="bulletin-alerte">
-	<h1>
-	bulletin d'alerte :
-	</h1>
+	<h1>Bulletin d'alerte</h1>
 <%
 	// Pour tous
 	boolean alertExist = false;

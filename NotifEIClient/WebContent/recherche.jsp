@@ -29,6 +29,7 @@
 </head>
 <body>
 	<jsp:include page="/header.jsp" />
+	<h1>Recherche</h1>
 	<form action="SearchServlet" method="get">
 		<div class="form-group" class="" id="divNom">
 			<label>Nom :</label>

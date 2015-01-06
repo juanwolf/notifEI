@@ -16,6 +16,7 @@
 	}
 %>
 	<jsp:include page="/header.jsp" />
+	<h1>Inscription</h1>
 	<form action="SubscribeServlet" method="post">
 		<div  id="champsUtilisateur">
 			<div class="form-group">
